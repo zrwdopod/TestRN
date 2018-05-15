@@ -1,0 +1,6 @@
+dependencies: \
+  /Users/dmallcd/work/TestRN/node_modules/react-native/React/Base/RCTFrameUpdate.m \
+  /Users/dmallcd/work/TestRN/node_modules/react-native/React/Base/RCTFrameUpdate.h \
+  /Users/dmallcd/work/TestRN/node_modules/react-native/React/Base/RCTUtils.h \
+  /Users/dmallcd/work/TestRN/node_modules/react-native/React/Base/RCTAssert.h \
+  /Users/dmallcd/work/TestRN/node_modules/react-native/React/Base/RCTDefines.h
