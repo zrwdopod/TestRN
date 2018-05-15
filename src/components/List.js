@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {
-    Text,
     ListView,
     FlatList,
     StyleSheet
@@ -19,12 +18,12 @@ export default class List extends Component {
         for (let i = 0, len = 1000; i < len; i++) {
             dataList.push({key: i + '', text: 'row' + i, image: imagePath + imageList[i] + '.jpg'});
         }
+
         this.state = {
             dataSource: ds.cloneWithRows(dataList),
             flatDS: dataList,
             listType: 'list',
         };
-
     }
 
     render() {

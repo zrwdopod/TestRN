@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 import {
@@ -8,25 +8,24 @@ import {
     Image
 } from 'react-native';
 
-export default class Card extends Component{
+export default class Card extends Component {
     static propTypes = {
         rowData: PropTypes.object.isRequired
     };
-    constructor(props){
+
+    constructor(props) {
         super(props);
     }
 
-    render(){
-        console.log(this.props.rowData.image);
-        // source={require('./assets/gta5.jpg')}
-
+    render() {
+        let rowData = this.props.rowData;
         return (
             <View>
-                <Text style={styles.text}>{this.props.rowData.text}</Text>
+                <Text style={styles.text}>{rowData.text}</Text>
                 <Image
                     style={styles.image}
                     // source={require(this.props.rowData.image)}
-                    source={{uri: this.props.rowData.image}}
+                    source={{uri: rowData.image}}
                 />
             </View>
         );
@@ -36,14 +35,14 @@ export default class Card extends Component{
 const styles = StyleSheet.create({
     card: {
         flex: 1,
-        width:100,
+        width: 100,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#ffffff',
     },
-    image:{
-        width:375,
-        height:234.375
+    image: {
+        width: 375,
+        height: 234.375
     },
     text: {
         fontSize: 20,

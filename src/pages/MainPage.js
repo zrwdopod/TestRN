@@ -13,14 +13,12 @@ const instructions = Platform.select({
     android: 'android',
 });
 
-type Props = {};
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+        backgroundColor: '#f5fcff',
     },
     welcome: {
         fontSize: 20,
@@ -34,7 +32,11 @@ const styles = StyleSheet.create({
     },
 });
 
-export default class MainPage extends Component<Props> {
+export default class MainPage extends Component {
+    static navigationOptions = {
+        title: 'MainPage',
+    };
+
     render() {
         return (
             <View style={styles.container}>
@@ -43,7 +45,6 @@ export default class MainPage extends Component<Props> {
                     {instructions}
                 </Text>
                 <List></List>
-
             </View>
         );
     }

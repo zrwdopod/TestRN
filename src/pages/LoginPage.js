@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#F5FCFF'
+        backgroundColor: '#f5fcff'
     },
     loginBtn: {
         borderWidth: 1,
