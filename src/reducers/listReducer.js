@@ -18,7 +18,7 @@ const initialState = {
 
 
 
-export default function reverse(state = initialState, action) {
+export default function listReducer(state = initialState, action) {
     switch (action.type) {
         case types.REVERSE:
             let nextList = JSON.parse(JSON.stringify(state.list)).reverse();

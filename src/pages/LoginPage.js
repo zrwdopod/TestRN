@@ -55,9 +55,9 @@ const styles = StyleSheet.create({
 
 export default connect(
     (state) => ({
-        status: state.loginIn.status,
-        isSuccess: state.loginIn.isSuccess,
-        user: state.loginIn.user,
+        status: state.loginReducer.status,
+        isSuccess: state.loginReducer.isSuccess,
+        user: state.loginReducer.user,
     }),
     (dispatch) => ({
         login: () => dispatch(loginAction.login()),

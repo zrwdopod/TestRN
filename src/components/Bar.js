@@ -38,7 +38,7 @@ const styles = StyleSheet.create({});
 
 export default connect(
     (state) => ({
-        orderBy: state.orderByChange.orderBy
+        orderBy: state.barReducer.orderBy
     }),
     (dispatch) => ({
         orderByToggle: () => {

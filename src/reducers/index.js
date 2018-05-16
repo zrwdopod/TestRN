@@ -2,14 +2,14 @@
 
 import { combineReducers } from 'redux';
 
-import loginIn from './loginReducer';
-import orderByChange from './barReducer';
-import listReverse from './listReducer';
+import loginReducer from './loginReducer';
+import barReducer from './barReducer';
+import listReducer from './listReducer';
 
 const rootReducer = combineReducers({
-    loginIn: loginIn,
-    orderByChange:orderByChange,
-    listReverse:listReverse
+    loginReducer: loginReducer,
+    barReducer:barReducer,
+    listReducer:listReducer
 });
 
 export default rootReducer;

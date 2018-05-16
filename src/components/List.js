@@ -62,8 +62,8 @@ const styles = StyleSheet.create({
 
 export default connect(
     (state) => ({
-        list: state.listReverse.list,
-        listType: state.listReverse.listType,
+        list: state.listReducer.list,
+        listType: state.listReducer.listType,
     }),
     (dispatch) => ({
         xxx: () => {
