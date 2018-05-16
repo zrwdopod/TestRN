@@ -3,6 +3,7 @@ import {
     AppRegistry,
 } from 'react-native';
 import Root from './src/Root';
+
 export default class TestRN extends Component {
     render() {
         return (

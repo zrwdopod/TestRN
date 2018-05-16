@@ -9,6 +9,7 @@ import {
 import {connect} from 'react-redux';
 import *as loginAction from '../actions/loginAction';
 import {NavigationActions} from 'react-navigation';
+import *as navTypes from '../constants/navTypes';
 
 const styles = StyleSheet.create({
     container: {
@@ -36,13 +37,13 @@ class LoginPage extends Component {
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-
         if (nextProps.isSuccess) {
-            const navAction = NavigationActions.navigate({routeName: 'Main'});
+            const navAction = NavigationActions.navigate({routeName: navTypes.MAIN});
             this.props.navigation.dispatch(navAction);
             return false;
+        }else {
+            return true;
         }
-        return true;
     }
 
     render() {
