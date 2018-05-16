@@ -2,16 +2,14 @@
 
 import * as types from '../constants/barTypes';
 
-
-export function orderByToggle(curOrderBy) {
-    return dispatch => {
-        dispatch(toggle('xxx'));
+function getToggleAction() {
+    return {
+        type: types.TOGGLE,
     }
 }
 
-
-function toggle(xxx) {
-    return {
-        type: types.TOGGLE,
+export function orderByToggle() {
+    return dispatch => {
+        dispatch(getToggleAction());
     }
 }

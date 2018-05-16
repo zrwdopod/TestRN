@@ -8,34 +8,34 @@ let user = {
 
 };
 
-export function login() {
-    return dispatch => {
-        dispatch(isLogining());
-
-        let result = fetch('https://www.baidu.com/')
-            .then((res) => {
-                dispatch(loginSuccess(true, user));
-            }).catch((err) => {
-                dispatch(loginError(false));
-            })
+function getLoginingAction() {
+    return {
+        type: types.LOGIN_DOING
     }
 }
 
-function isLogining() {
+function getLoginSuccessAction(isSuccess, user) {
     return {
-        type: types.LOGIN_IN_DOING
-    }
-}
-
-function loginSuccess(isSuccess, user) {
-    return {
-        type: types.LOGIN_IN_DONE,
+        type: types.LOGIN_DONE,
         user: user,
     }
 }
 
-function loginError(isSuccess) {
+function getLoginErrorAction(isSuccess) {
     return {
-        type: types.LOGIN_IN_ERROR,
+        type: types.LOGIN_ERROR,
+    }
+}
+
+export function login() {
+    return dispatch => {
+        dispatch(getLoginingAction());
+
+        let result = fetch('https://www.baidu.com/')
+            .then((res) => {
+                dispatch(getLoginSuccessAction(true, user));
+            }).catch((err) => {
+                dispatch(getLoginErrorAction(false));
+            })
     }
 }

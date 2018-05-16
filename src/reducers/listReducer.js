@@ -1,26 +1,23 @@
 'use strict';
 
-import * as types from '../constants/listTypes';
+import * as listTypes from '../constants/listTypes';
 import roadImageList from '../assets/mock/road-image.json';
 
 let dataList = [];
-let imagePath = 'https://bj.bcebos.com/v1/gaopin-preview/';
-let imageList = roadImageList;
+const imagePath = 'https://bj.bcebos.com/v1/gaopin-preview/';
 
-for (let i = 0, len = imageList.length; i < len; i++) {
-    dataList.push({key: i + '', text: 'row' + i, image: imagePath + imageList[i] + '.jpg'});
+for (let i = 0, len = roadImageList.length; i < len; i++) {
+    dataList.push({key: i + '', text: 'row' + i, image: imagePath + roadImageList[i] + '.jpg'});
 }
 
 const initialState = {
     list: dataList,
-    listType: 'flat',
+    listType: listTypes.FLAT_LIST,
 };
-
-
 
 export default function listReducer(state = initialState, action) {
     switch (action.type) {
-        case types.REVERSE:
+        case listTypes.REVERSE:
             let nextList = JSON.parse(JSON.stringify(state.list)).reverse();
             return {
                 ...state,

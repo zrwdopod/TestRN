@@ -5,10 +5,10 @@ import {
     Text,
     View
 } from 'react-native';
+import {connect} from 'react-redux';
+
 import List from '../components/List';
 import Bar from '../components/Bar';
-
-
 
 const instructions = Platform.select({
     ios: 'ios',
@@ -27,11 +27,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         margin: 10,
     },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
-    },
 });
 
 class MainPage extends Component {
@@ -43,18 +38,19 @@ class MainPage extends Component {
         return true;
     }
 
-
     render() {
         return (
             <View style={styles.container}>
                 <Bar></Bar>
-                <Text style={styles.welcome}>
-                    {instructions}
-                </Text>
                 <List></List>
+                <Text style={styles.welcome}>{instructions}</Text>
             </View>
         );
     }
 }
 
-export default MainPage
+// this is a container component,responsible for organization state
+export default connect(
+    (rootState) => (rootState.mainPage),
+    (dispatch) => ({})
+)(MainPage)

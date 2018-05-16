@@ -10,36 +10,6 @@ import {connect} from 'react-redux';
 import *as loginAction from '../actions/loginAction';
 import {NavigationActions} from 'react-navigation';
 
-const mainAction = NavigationActions.navigate({routeName: 'Main'});
-
-class LoginPage extends Component {
-    static navigationOptions = {
-        title: 'LoginPage',
-    };
-
-    shouldComponentUpdate(nextProps, nextState) {
-        if ( nextProps.isSuccess) {
-            this.props.navigation.dispatch(mainAction);
-            return false;
-        }
-        return true;
-    }
-
-    render() {
-        const {login} = this.props;
-        return (
-            <View style={styles.container}>
-                <Text>状态: {this.props.status}</Text>
-                <TouchableOpacity onPress={() => login()} style={{marginTop: 50}}>
-                    <View style={styles.loginBtn}>
-                        <Text>登录</Text>
-                    </View>
-                </TouchableOpacity>
-            </View>
-        )
-    }
-}
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -50,15 +20,44 @@ const styles = StyleSheet.create({
     loginBtn: {
         borderWidth: 1,
         padding: 5,
+    },
+    touchLoginBtn:{
+        marginTop: 50
     }
 });
 
+class LoginPage extends Component {
+    static navigationOptions = {
+        title: 'LoginPage',
+    };
+
+    shouldComponentUpdate(nextProps, nextState) {
+        const mainAction = NavigationActions.navigate({routeName: 'Main'});
+        if (nextProps.isSuccess) {
+            this.props.navigation.dispatch(mainAction);
+            return false;
+        }
+        return true;
+    }
+
+    render() {
+        const {login} = this.props;
+        return (
+            <View style={styles.container}>
+                <Text>status: {this.props.status}</Text>
+                <TouchableOpacity onPress={() => login()} style={styles.touchLoginBtn}>
+                    <View style={styles.loginBtn}>
+                        <Text>login</Text>
+                    </View>
+                </TouchableOpacity>
+            </View>
+        )
+    }
+}
+
+// this is a container component,responsible for organization state
 export default connect(
-    (state) => ({
-        status: state.loginReducer.status,
-        isSuccess: state.loginReducer.isSuccess,
-        user: state.loginReducer.user,
-    }),
+    (rootState) => (rootState.login),
     (dispatch) => ({
         login: () => dispatch(loginAction.login()),
     })

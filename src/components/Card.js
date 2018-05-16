@@ -8,30 +8,6 @@ import {
     Image
 } from 'react-native';
 
-export default class Card extends Component {
-    static propTypes = {
-        rowData: PropTypes.object.isRequired
-    };
-
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        let rowData = this.props.rowData;
-        return (
-            <View>
-                <Text style={styles.text}>{rowData.text}</Text>
-                <Image
-                    style={styles.image}
-                    // source={require(this.props.rowData.image)}
-                    source={{uri: rowData.image}}
-                />
-            </View>
-        );
-    }
-};
-
 const styles = StyleSheet.create({
     card: {
         flex: 1,
@@ -50,3 +26,27 @@ const styles = StyleSheet.create({
         margin: 10,
     }
 });
+
+// this is a pure display component,responsible for display,without state manage
+export default class Card extends Component {
+    static propTypes = {
+        rowData: PropTypes.object.isRequired
+    };
+
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        let rowData = this.props.rowData;
+        return (
+            <View>
+                <Text style={styles.text}>{rowData.text}</Text>
+                <Image
+                    style={styles.image}
+                    source={{uri: rowData.image}}
+                />
+            </View>
+        );
+    }
+};

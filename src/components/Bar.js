@@ -9,6 +9,8 @@ import {connect} from 'react-redux';
 import *as barAction from '../actions/barAction';
 import *as listAction from '../actions/listAction';
 
+const styles = StyleSheet.create({});
+
 class Bar extends Component {
     constructor(props) {
         super(props);
@@ -34,18 +36,16 @@ class Bar extends Component {
     }
 }
 
-const styles = StyleSheet.create({});
 
+// this is a container component,responsible for organization state
 export default connect(
-    (state) => ({
-        orderBy: state.barReducer.orderBy
-    }),
+    (rootState) => (rootState.bar),
     (dispatch) => ({
         orderByToggle: () => {
             return dispatch(barAction.orderByToggle());
         },
         reverseList: () => {
-            return dispatch(listAction.reverseHandle());
+            return dispatch(listAction.reverse());
         }
     })
 )(Bar)

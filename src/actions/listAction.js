@@ -2,16 +2,15 @@
 
 import * as types from '../constants/listTypes';
 
-
-export function reverseHandle() {
-    return dispatch => {
-        dispatch(reverse('xxx'));
-    }
-}
-
-
-function reverse(xxx) {
+function getReverseAction() {
     return {
         type: types.REVERSE,
     }
 }
+
+export function reverse() {
+    return dispatch => {
+        dispatch(getReverseAction());
+    }
+}
+
