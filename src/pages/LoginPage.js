@@ -28,13 +28,18 @@ const styles = StyleSheet.create({
 
 class LoginPage extends Component {
     static navigationOptions = {
-        title: 'LoginPage',
+        title: 'login',
     };
 
+    constructor(props){
+        super(props);
+    }
+
     shouldComponentUpdate(nextProps, nextState) {
-        const mainAction = NavigationActions.navigate({routeName: 'Main'});
+
         if (nextProps.isSuccess) {
-            this.props.navigation.dispatch(mainAction);
+            const navAction = NavigationActions.navigate({routeName: 'Main'});
+            this.props.navigation.dispatch(navAction);
             return false;
         }
         return true;
@@ -59,6 +64,6 @@ class LoginPage extends Component {
 export default connect(
     (rootState) => (rootState.login),
     (dispatch) => ({
-        login: () => dispatch(loginAction.login()),
+        login: () => dispatch(loginAction.login())
     })
 )(LoginPage)

@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
 
 class MainPage extends Component {
     static navigationOptions = {
-        title: 'MainPage',
+        title: 'main',
     };
 
     shouldComponentUpdate(nextProps, nextState) {
