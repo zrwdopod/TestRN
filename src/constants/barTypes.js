@@ -1,3 +1,1 @@
-export const DESC = 'DESC';
-
-export const ASC = 'ASC';
+export const TOGGLE = 'TOGGLE';

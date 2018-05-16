@@ -3,8 +3,8 @@
 import * as types from '../constants/loginTypes';
 
 let user = {
-    name: 'zhangsan',
-    age: 24,
+    name: 'Diablo',
+    age: 32,
 
 };
 

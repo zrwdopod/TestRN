@@ -6,8 +6,8 @@ import {
     TouchableOpacity,
 } from 'react-native';
 
-import {connect} from 'react-redux'; // 引入connect函数
-import *as loginAction from '../actions/loginAction';// 导入action方法
+import {connect} from 'react-redux';
+import *as loginAction from '../actions/loginAction';
 import {NavigationActions} from 'react-navigation';
 
 const mainAction = NavigationActions.navigate({routeName: 'Main'});
@@ -18,8 +18,7 @@ class LoginPage extends Component {
     };
 
     shouldComponentUpdate(nextProps, nextState) {
-        // 登录完成,切成功登录
-        if (nextProps.status === '登陆成功' && nextProps.isSuccess) {
+        if ( nextProps.isSuccess) {
             this.props.navigation.dispatch(mainAction);
             return false;
         }
@@ -30,12 +29,10 @@ class LoginPage extends Component {
         const {login} = this.props;
         return (
             <View style={styles.container}>
-                <Text>状态: {this.props.status}
-                </Text>
+                <Text>状态: {this.props.status}</Text>
                 <TouchableOpacity onPress={() => login()} style={{marginTop: 50}}>
                     <View style={styles.loginBtn}>
-                        <Text>登录
-                        </Text>
+                        <Text>登录</Text>
                     </View>
                 </TouchableOpacity>
             </View>

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
     Platform,
     StyleSheet,
@@ -7,6 +7,8 @@ import {
 } from 'react-native';
 import List from '../components/List';
 import Bar from '../components/Bar';
+
+
 
 const instructions = Platform.select({
     ios: 'ios',
@@ -32,10 +34,15 @@ const styles = StyleSheet.create({
     },
 });
 
-export default class MainPage extends Component {
+class MainPage extends Component {
     static navigationOptions = {
         title: 'MainPage',
     };
+
+    shouldComponentUpdate(nextProps, nextState) {
+        return true;
+    }
+
 
     render() {
         return (
@@ -49,3 +56,5 @@ export default class MainPage extends Component {
         );
     }
 }
+
+export default MainPage

@@ -5,25 +5,47 @@ import {
     StyleSheet
 } from 'react-native';
 
-export default class Bar extends Component {
+import {connect} from 'react-redux';
+import *as barAction from '../actions/barAction';
+import *as listAction from '../actions/listAction';
+
+class Bar extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            orderBy:'desc'
-        };
     }
 
-    _changeOrderBy(){
-        (this.state.orderBy == 'desc')?this.setState({orderBy:'asc'}):this.setState({orderBy:'desc'});
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log('Bar shouldComponentUpdate', arguments);
+
+        if (nextProps.orderBy !== this.props.orderBy) {
+            this.props.reverseList();
+            return true;
+        }
+        return true;
     }
 
     render() {
+        const {orderByToggle} = this.props;
         return (
             <View>
-                <Text onPress={this._changeOrderBy.bind(this)}>{this.state.orderBy}</Text>
+                <Text onPress={orderByToggle}>{this.props.orderBy}</Text>
             </View>
         );
     }
 }
-const styles = StyleSheet.create({
-});
+
+const styles = StyleSheet.create({});
+
+export default connect(
+    (state) => ({
+        orderBy: state.orderByChange.orderBy
+    }),
+    (dispatch) => ({
+        orderByToggle: () => {
+            return dispatch(barAction.orderByToggle());
+        },
+        reverseList: () => {
+            return dispatch(listAction.reverseHandle());
+        }
+    })
+)(Bar)

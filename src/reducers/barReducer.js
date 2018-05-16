@@ -1,23 +1,20 @@
 'use strict';
 
-import * as types from '../constants/barTypes'; // 导入事件类别,用来做事件类别的判断
+import * as types from '../constants/barTypes';
 
 const initialState = {
-    orderBy: 'desc'
+    orderBy: 'asc'
 };
 
 export default function orderByChange(state = initialState, action) {
     switch (action.type) {
-        case types.DESC:
+        case types.TOGGLE:
+            let nextOrderBy = '';
+            state.orderBy == 'desc' ? nextOrderBy = 'asc' : nextOrderBy = 'desc';
+            console.log('orderByChange', nextOrderBy);
             return {
                 ...state,
-                orderBy: 'desc'
-            };
-            break;
-        case types.ASC:
-            return {
-                ...state,
-                orderBy: 'asc'
+                orderBy: nextOrderBy
             };
             break;
         default:
