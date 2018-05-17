@@ -5,7 +5,6 @@ import * as types from '../constants/loginTypes';
 let user = {
     name: 'Diablo',
     age: 32,
-
 };
 
 function getLoginingAction() {
@@ -31,7 +30,7 @@ export function login() {
     return dispatch => {
         dispatch(getLoginingAction());
 
-        let result = fetch('https://www.baidu.com/')
+        let result = fetch('https://www.google.com/')
             .then((res) => {
                 dispatch(getLoginSuccessAction(true, user));
             }).catch((err) => {

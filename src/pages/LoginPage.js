@@ -16,13 +16,13 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#f5fcff'
+        backgroundColor: '#ececec'
     },
     loginBtn: {
         borderWidth: 1,
         padding: 5,
     },
-    touchLoginBtn:{
+    touchLoginBtn: {
         marginTop: 50
     }
 });
@@ -32,7 +32,7 @@ class LoginPage extends Component {
         title: 'login',
     };
 
-    constructor(props){
+    constructor(props) {
         super(props);
     }
 
@@ -41,7 +41,7 @@ class LoginPage extends Component {
             const navAction = NavigationActions.navigate({routeName: navTypes.MAIN});
             this.props.navigation.dispatch(navAction);
             return false;
-        }else {
+        } else {
             return true;
         }
     }

@@ -9,7 +9,12 @@ import {connect} from 'react-redux';
 import *as barAction from '../actions/barAction';
 import *as listAction from '../actions/listAction';
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    item:{
+        fontSize:22,
+        fontWeight:'bold'
+    }
+});
 
 class Bar extends Component {
     constructor(props) {
@@ -30,7 +35,7 @@ class Bar extends Component {
         const {orderByToggle} = this.props;
         return (
             <View>
-                <Text onPress={orderByToggle}>{this.props.orderBy}</Text>
+                <Text style={styles.item} onPress={orderByToggle}>{this.props.orderBy}</Text>
             </View>
         );
     }

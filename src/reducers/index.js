@@ -10,7 +10,7 @@ const rootReducer = combineReducers({
     login: loginReducer,
     bar: barReducer,
     list: listReducer,
-    mainPage:mainPageReducer
+    mainPage: mainPageReducer
 });
 
 export default rootReducer;

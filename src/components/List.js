@@ -8,7 +8,6 @@ import {connect} from 'react-redux';
 import *as listTypes from '../constants/listTypes';
 import Card from './Card';
 
-
 const styles = StyleSheet.create({
     listView: {
         margin: 10,

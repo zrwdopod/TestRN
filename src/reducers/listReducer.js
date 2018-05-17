@@ -7,7 +7,7 @@ let dataList = [];
 const imagePath = 'https://bj.bcebos.com/v1/gaopin-preview/';
 
 for (let i = 0, len = roadImageList.length; i < len; i++) {
-    dataList.push({key: i + '', text: 'row' + i, image: imagePath + roadImageList[i] + '.jpg'});
+    dataList.push({key: i + '', text: 'item-' + i, image: imagePath + roadImageList[i] + '.jpg'});
 }
 
 const initialState = {
