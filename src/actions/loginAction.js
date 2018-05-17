@@ -7,34 +7,21 @@ let user = {
     age: 32,
 };
 
-function getLoginingAction() {
+export function getLoginingAction() {
     return {
         type: types.LOGIN_DOING
     }
 }
 
-function getLoginSuccessAction(isSuccess, user) {
+export function getLoginSuccessAction() {
     return {
         type: types.LOGIN_DONE,
-        user: user,
+        user:user
     }
 }
 
-function getLoginErrorAction(isSuccess) {
+export function getLoginErrorAction() {
     return {
         type: types.LOGIN_ERROR,
-    }
-}
-
-export function login() {
-    return dispatch => {
-        dispatch(getLoginingAction());
-
-        let result = fetch('https://www.google.com/')
-            .then((res) => {
-                dispatch(getLoginSuccessAction(true, user));
-            }).catch((err) => {
-                dispatch(getLoginErrorAction(false));
-            })
     }
 }

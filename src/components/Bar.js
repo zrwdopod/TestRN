@@ -44,10 +44,10 @@ export default connect(
     (rootState) => (rootState.bar),
     (dispatch) => ({
         orderByToggle: () => {
-            return dispatch(barAction.orderByToggle());
+            dispatch(barAction.getToggleAction());
         },
         reverseList: () => {
-            return dispatch(listAction.reverse());
+            dispatch(listAction.getReverseAction());
         }
     })
 )(Bar)

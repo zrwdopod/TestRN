@@ -37,13 +37,7 @@ class LoginPage extends Component {
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        if (nextProps.isSuccess) {
-            const navAction = NavigationActions.navigate({routeName: navTypes.MAIN});
-            this.props.navigation.dispatch(navAction);
-            return false;
-        } else {
-            return true;
-        }
+        return true;
     }
 
     render() {
@@ -65,6 +59,15 @@ class LoginPage extends Component {
 export default connect(
     (rootState) => (rootState.login),
     (dispatch) => ({
-        login: () => dispatch(loginAction.login())
+        login: () => {
+            dispatch(loginAction.getLoginingAction());
+
+            let result = fetch('https://www.baidu.com/')
+                .then((res) => {
+                    dispatch(loginAction.getLoginSuccessAction(true));
+                }).catch((err) => {
+                    dispatch(loginAction.getLoginErrorAction(false));
+                });
+        }
     })
 )(LoginPage)

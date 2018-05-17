@@ -4,15 +4,19 @@ import React, {Component} from 'react';
 import {Provider} from 'react-redux';
 
 import configureStore from './store/ConfigureStore';
-import App from './container/App';
+import {App} from './container/App';
+
+import { Provider } from 'react-redux';
+
+import AppWithNavigationState from './navigators/AppNavigator';
 
 const store = configureStore();
 
-export default class Root extends Component {
+class Root extends Component {
     render() {
         return (
             <Provider store={store}>
-                <App></App>
+                <AppWithNavigationState />
             </Provider>
         );
     }

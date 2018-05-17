@@ -1,15 +1,26 @@
-import React, { Component } from 'react';
-import {
-    AppRegistry,
-} from 'react-native';
-import Root from './src/Root';
+import React from 'react';
+import { AppRegistry } from 'react-native';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
 
-export default class TestRN extends Component {
+import AppReducer from './src/reducers';
+import AppWithNavigationState from './src/navigators/AppNavigator';
+import { middleware } from './src/utils/redux';
+
+const store = createStore(
+    AppReducer,
+    applyMiddleware(middleware),
+);
+
+class TestRN extends React.Component {
     render() {
         return (
-            <Root />
+            <Provider store={store}>
+                <AppWithNavigationState />
+            </Provider>
         );
     }
 }
 
 AppRegistry.registerComponent('TestRN', () => TestRN);
+

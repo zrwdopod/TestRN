@@ -5,12 +5,14 @@ import loginReducer from './loginReducer';
 import barReducer from './barReducer';
 import listReducer from './listReducer';
 import mainPageReducer from './mainPageReducer'
+import navReducer from './navReducer';
 
 const rootReducer = combineReducers({
     login: loginReducer,
     bar: barReducer,
     list: listReducer,
-    mainPage: mainPageReducer
+    mainPage: mainPageReducer,
+    nav:navReducer
 });
 
 export default rootReducer;
