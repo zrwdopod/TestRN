@@ -22,8 +22,6 @@ class Bar extends Component {
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        console.log('Bar shouldComponentUpdate', arguments);
-
         if (nextProps.orderBy !== this.props.orderBy) {
             this.props.reverseList();
             return true;
@@ -40,7 +38,6 @@ class Bar extends Component {
         );
     }
 }
-
 
 // this is a container component,responsible for organization state
 export default connect(
