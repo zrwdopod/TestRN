@@ -33,11 +33,11 @@ export function getLoginErrorAction() {
     }
 }
 
-const xxx = postTitle => (dispatch, getState) => {
-    dispatch(getLoginingAction());
-    return fetch(`http://www.baidu.com`)
-        .then(response => response.json())
-        .then(json => dispatch(getLoginSuccessAction(postTitle, json)));
-}
-
-export xxx;
+// const xxx = postTitle => (dispatch, getState) => {
+//     dispatch(getLoginingAction());
+//     return fetch(`http://www.baidu.com`)
+//         .then(response => response.json())
+//         .then(json => dispatch(getLoginSuccessAction(postTitle, json)));
+// }
+//
+// export xxx;
