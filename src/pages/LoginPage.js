@@ -60,6 +60,7 @@ export default connect(
     (rootState) => (rootState.login),
     (dispatch) => ({
         login: () => {
+            // dispatch(loginAction.load());
             dispatch(loginAction.getLoginingAction());
 
             let result = fetch('https://www.baidu.com/')
